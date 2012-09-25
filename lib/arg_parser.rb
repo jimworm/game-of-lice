@@ -3,8 +3,6 @@ module ArgParser
   
   class << self
     def parse(args)
-      settings = {}
-      
       args.reduce(@defaults) do |settings, arg|
         settings.merge(arg.include?('=') ? parse_arg(arg) : parse_file(arg))
       end
