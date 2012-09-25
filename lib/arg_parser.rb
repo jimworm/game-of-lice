@@ -24,14 +24,7 @@ module ArgParser
         "levels/#{basename}"
       end
       
-      if filename
-        template = File.readlines filename
-        width    = template.shift.index('#') + 1
-        height   = template.size
-        {file: template, width: width, height: height}
-      else
-        {}
-      end
+      filename ? {file: File.readlines(filename)} : {}
     end
   end
 end

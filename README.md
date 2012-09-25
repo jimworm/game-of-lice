@@ -25,4 +25,4 @@ If random=true, the probability of life appearing in a cell is (1/prob), default
 
 filename
 --------
-Level file to load. Looks in current dir or levels dir.
+Level file to load. Looks in current dir or levels dir. Overrides random, prob, width and height.

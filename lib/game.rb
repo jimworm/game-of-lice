@@ -5,11 +5,14 @@ class Game
     options   = {width: 5, height: 5, speed: 100, rounds: 100, random: true, prob: 10, file: nil}.merge(options)
     @rounds   = options[:rounds].to_i
     @interval = (options[:speed].nil? ? 0 : (2.0 / options[:speed].to_i))
-    @board    = ::Board.new options[:width], options[:height]
     if options[:file]
+      width   = options[:file].shift.index('#') + 1
+      height  = options[:file].size
+      @board  = ::Board.new width, height
       board.populate options[:file]
-    elsif options[:random]
-      board.randomize(options[:prob])
+    else
+      @board  = ::Board.new options[:width], options[:height]
+      board.randomize(options[:prob]) if options[:random]
     end
     display
   end
