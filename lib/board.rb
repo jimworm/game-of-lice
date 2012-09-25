@@ -41,7 +41,7 @@ class Board
   end
   
   def walk(&block)
-    grid.flatten.each{ |cell| yield cell }
+    grid.flatten.map{ |cell| yield cell }
   end
   
   def life

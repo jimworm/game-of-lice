@@ -18,7 +18,9 @@ class Game
   end
   
   def tick
-    @board.walk{ |cell| cell.find_next_state }
+    # @board.walk{ |cell| cell.find_next_state }
+    threads = @board.walk{ |cell| Thread.new{cell.find_next_state} }
+    threads.each(&:join)
   end
   
   def tock

@@ -6,6 +6,7 @@ class Cell
   end
 
   def find_next_state
+    sleep(0.00001)
     @_next_state = case neighbours.reduce(0){ |t, n| t + n.to_i }
       when 3 then true
       when 2 then state
